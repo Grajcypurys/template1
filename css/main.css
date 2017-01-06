@@ -1,5 +1,118 @@
-*,*::before,*::after{
+*{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: 0;
+}
+html, body{
+    width: 100%;
+    height:100%;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+a{
+    text-decoration: none;
+    color: #dddddd;
+}
+.categories-list,.lang-list,.socials-list{
+    list-style-type: none;
+}
+.categories-list{
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content: center;
+    padding-right: 2.5rem;
+}
+.categories-list__item{
+    padding: 1rem 0;
+}
+.lang-list{
+    bottom: 0;
+    display: flex;
+    left: 0;
+    padding-bottom: 2rem;
+    padding-left: 2.5rem;
+    position: absolute;
+}
+.lang-list__item{
+    padding-right: 1rem;
+}
+.page-header{
+    align-items: center;
+    border-bottom: 1px solid #000000;
+    display: flex;
+    height: 200px;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    z-index:11;
+}
+.page-nav{
+    align-items: center;
+    background: rgba(35, 35, 35, 0);
+    display: flex;
+    height:100%;
+    justify-content: flex-end;
+    position: fixed;
+    visibility: hidden;
+    width:100%;
+    z-index:10;
+    transition: all .2s ease-in;
+}
+.page-nav__closed{
+    background: rgba(35, 35, 35, .9);
+    visibility: visible;
+}
+.page-nav.page-nav__closed .socials-list__item{
+    opacity: 1;
+}
+.socials-list{
+    bottom: 0;
+    display: flex;
+    right: 0;
+    padding-bottom: 2rem;
+    padding-right: 2.5rem;
+    position: absolute;
+}
+.socials-list__item{
+    padding-left: 1rem;
+    opacity: 0;
+    transition: all 1s ease-in;
+}
+.swiper-container {
+    height: 100vh;
+    width: 100%;
+}
+.swiper-slide{
+    align-items: center;
+    color: #dddddd;
+    display: flex;
+    justify-content: center;
+}
+.swiper-slide__slide1{
+    background: url('../img/1920x1080/02.jpg');
+    background-position: 50% 50%;
+}
+.swiper-slide__slide2{
+    background: url('../img/1920x1080/01.jpg');
+    background-position: 50% 50%;
+}
+.visually-hidden{
+    border:0 !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px !important;
+    overflow: hidden;
+    padding:0 !important;
+    position: absolute !important;
+    width: 1px !important; 
+}
+body:hover .visually-hidden a, body:hover .visually-hidden button, body:hover .visually-hidden input{
+    display: none !important;
 }
