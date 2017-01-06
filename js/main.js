@@ -18,16 +18,16 @@ var mySwiper = new Swiper ('.swiper-container', {
     var menu = document.querySelector(".page-nav")
     btn.addEventListener("click", function(){
         if (menu.classList) {
-            menu.classList.toggle("page-nav__closed");
+            menu.classList.toggle("page-nav__opened");
         }
         else {
             var classes = menu.className.split(' ');
-            var existingIndex = classes.indexOf("page-nav__closed");
+            var existingIndex = classes.indexOf("page-nav__opened");
 
             if (existingIndex >= 0)
                 classes.splice(existingIndex, 1);
             else
-                classes.push("page-nav__closed");
+                classes.push("page-nav__opened");
                 menu.className = classes.join(' ');
         }
         console.log(btn)
