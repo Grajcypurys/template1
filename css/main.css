@@ -157,13 +157,20 @@ a{
 }
 .page-header{
     align-items: center;
-    border-bottom: 1px solid #000000;
+    box-shadow: 0 0 1rem rgba(35, 35, 35, .1);
     display: flex;
-    height: 200px;
+    height: 10rem;
     justify-content: space-between;
     position: fixed;
     width: 100%;
     z-index:11;
+    transition: all .3s ease-out;
+}
+.page-header__sticky{
+    background: white;
+}
+.page-logo{
+    margin-left: 2rem;
 }
 .page-nav{
     align-items: center;

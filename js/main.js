@@ -21,6 +21,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     var ham = document.querySelector(".hamburger")
     var items = [menu, ring, ham]
     var itemsClass = ["page-nav__opened", "hamburger-svg__ring-filled", "hamburger-opened"]
+
     btn.addEventListener("click", function(){
         
         if (ham.className === "hamburger") {
@@ -58,3 +59,29 @@ var mySwiper = new Swiper ('.swiper-container', {
         
     }, false)
 } () );
+
+//(function(){
+//   var stickyNavTop = $('.page-header').offset().top;
+// 
+//   var stickyNav = function(){
+//   var scrollTop = $(window).scrollTop();
+// 
+//   if (scrollTop > stickyNavTop) { 
+//      $('.page-header').addClass('page-header__sticky');
+//   } else {
+//      $('.page-header').removeClass('page-header__sticky');
+//    }
+//   };
+// 
+// 
+//   $(window).scroll(function() {
+//      stickyNav();
+//   });
+//}());
+
+window.onscroll = function() {
+    var sticky = window.document.getElementById('page-header');
+    if( document.body.scrollTop + document.documentElement.scrollTop > 0)
+    {sticky.classList.add("page-header__sticky")}
+    else sticky.classList.remove("page-header__sticky");
+};
