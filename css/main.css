@@ -78,7 +78,7 @@ a{
     right: 0;
 }
 .hamburger{
-    background: white;
+    background: #dddddd;
     bottom: auto;
     height: 3px;
     left: 50%;
@@ -91,7 +91,7 @@ a{
 }
 .hamburger::after, .hamburger::before{
     backface-visibility: hidden;
-    background: white;
+    background: #dddddd;
     content: "";
     height: 100%;
     position: absolute;
@@ -130,6 +130,9 @@ a{
     stroke-dashoffset: 0;
     transition: all .5s ease-out;
 }
+.hamburger__sticky, .hamburger__sticky.hamburger::before, .hamburger__sticky.hamburger::after{
+    background: black;
+}
 .lang-list{
     bottom: 0;
     display: flex;
@@ -157,7 +160,6 @@ a{
 }
 .page-header{
     align-items: center;
-    box-shadow: 0 0 1rem rgba(35, 35, 35, .1);
     display: flex;
     height: 10rem;
     justify-content: space-between;
@@ -167,7 +169,8 @@ a{
     transition: all .3s ease-out;
 }
 .page-header__sticky{
-    background: white;
+    background: #ffffff;
+    box-shadow: 0 0 1rem rgba(35, 35, 35, .1);
 }
 .page-logo{
     margin-left: 2rem;
