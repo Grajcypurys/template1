@@ -24,31 +24,32 @@ var mySwiper = new Swiper ('.swiper-container', {
     var items = [menu, ring, ham]
     var itemsClass = ["page-nav__opened", "hamburger-svg__ring-filled", "hamburger-opened"]
     
-    function classToggle(checker, checkerClass, arr, arrClass){
-        
+    function classToggle(checker, baseClass, arr, arrClass){
+        //baseClass variable need to be defined inside function scope
         if (checker.classList) {
             for (var i = 0, ilen = arr.length; i < ilen; i++){
                 arr[i].classList.toggle(arrClass[i])
             }
         }
         else {
-            ( function () {
+           ( function () {
                 for (var i = 0, ilen = arr.length; i < ilen; i++) {
-                    var reg = new RegExp('(\\s|^)' + arrClass[i] + '(\\s|$)')
-                    if (arr[i].parentNode.nodeName !== "svg") {
-                        if (checker.className === '"'+checkerClass+'"') {
-                            arr[i].className += " " + arrClass[i]
-                        } else {
-                            arr[i].className = arr[i].className.replace(reg, '')
-                        }
-                    } else {
-                        if (checker.className === '"'+checkerClass+'"') {
-                            arr[i].className.baseVal += " " + arrClass[i]
-                        } else {
-                            arr[i].className.baseVal = arr[i].className.baseVal.replace(reg, '')
-                        }
-                    }
+                     var reg = new RegExp('(\\s|^)' + arrClass[i] + '(\\s|$)')
+                     if (arr[i].parentNode.nodeName !== "svg") {
+                         if (checker.className === baseClass) {
+                             arr[i].className += " " + arrClass[i]
+                         } else {
+                             arr[i].className = arr[i].className.replace(reg, '')
+                         }
+                     } else {
+                         if (checker.className === baseClass) {
+                             arr[i].className.baseVal += " " + arrClass[i]
+                         } else {
+                             arr[i].className.baseVal = arr[i].className.baseVal.replace(reg, '')
+                          }
+                      }
                 }
+                
             } () );
         }
         
@@ -71,7 +72,9 @@ var mySwiper = new Swiper ('.swiper-container', {
     
     btn.addEventListener("click", function () {
         
-        if (ham.className === "hamburger" || ham.className === "hamburger hamburger__sticky") {
+        var baseClass = "hamburger";
+        
+        if (ham.className === baseClass || ham.className === baseClass + " hamburger__sticky") {
             btn.setAttribute("title", "Close menu")
             header.classList.remove("page-header__sticky")
             ham.classList.remove("hamburger__sticky")
@@ -83,7 +86,7 @@ var mySwiper = new Swiper ('.swiper-container', {
             window.addEventListener("scroll", sticky, false)
         }
         
-        classToggle(ham, hamburger, items, itemsClass)
+        classToggle(ham, baseClass, items, itemsClass)
         
     }, false)
     

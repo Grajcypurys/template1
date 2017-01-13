@@ -291,14 +291,15 @@ a{
     background-position: 50% 50%;
 }
 .visually-hidden{
-    border:0 !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px !important;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
     overflow: hidden;
-    padding:0 !important;
-    position: absolute !important;
-    width: 1px !important; 
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
 }
 body:hover .visually-hidden a, body:hover .visually-hidden button, body:hover .visually-hidden input{
     display: none !important;
