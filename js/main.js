@@ -13,7 +13,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     prevButton: '.swiper-button-prev'
   });
 
-( function () {
+( function() {
     "use strict";
     var btn = document.getElementById("btn-menu")
     var menu = document.querySelector(".page-nav")
@@ -21,75 +21,58 @@ var mySwiper = new Swiper ('.swiper-container', {
     var header = document.getElementById('page-header')
     var ham = document.getElementById("hamburger")
     var logo = document.getElementById("page-logo")
-    var items = [menu, ring, ham]
-    var itemsClass = ["page-nav__opened", "hamburger-svg__ring-filled", "hamburger-opened"]
     
-    function classToggle(checker, baseClass, arr, arrClass){
-        //baseClass variable need to be defined inside function scope
-        if (checker.classList) {
-            for (var i = 0, ilen = arr.length; i < ilen; i++){
-                arr[i].classList.toggle(arrClass[i])
-            }
+    function classToggle( arr, arrClass ) {
+        for ( var i = 0, ilen = arr.length; i < ilen; i++ ) {
+            arr[i].classList.toggle( arrClass[i] )
         }
-        else {
-           ( function () {
-                for (var i = 0, ilen = arr.length; i < ilen; i++) {
-                     var reg = new RegExp('(\\s|^)' + arrClass[i] + '(\\s|$)')
-                     if (arr[i].parentNode.nodeName !== "svg") {
-                         if (checker.className === baseClass) {
-                             arr[i].className += " " + arrClass[i]
-                         } else {
-                             arr[i].className = arr[i].className.replace(reg, '')
-                         }
-                     } else {
-                         if (checker.className === baseClass) {
-                             arr[i].className.baseVal += " " + arrClass[i]
-                         } else {
-                             arr[i].className.baseVal = arr[i].className.baseVal.replace(reg, '')
-                          }
-                      }
-                }
-                
-            } () );
-        }
-        
     }
     
-    function sticky () {
-        
-        if ( document.body.scrollTop + document.documentElement.scrollTop > 0 ) {
-            header.classList.add("page-header__sticky")
-            ham.classList.add("hamburger__sticky")
-            logo.setAttribute("src", "img/logo-dark.png")
+    function classAdd( arr, arrClass ) {
+        for ( var i = 0, ilen = arr.length; i < ilen; i++ ) {
+            arr[i].classList.add( arrClass[i] )
         }
-        else {
-            header.classList.remove("page-header__sticky")
-            ham.classList.remove("hamburger__sticky")
-            logo.setAttribute("src", "img/logo.png")
-        }
-        
     }
     
-    btn.addEventListener("click", function () {
-        
-        var baseClass = "hamburger";
-        
-        if (ham.className === baseClass || ham.className === baseClass + " hamburger__sticky") {
-            btn.setAttribute("title", "Close menu")
-            header.classList.remove("page-header__sticky")
-            ham.classList.remove("hamburger__sticky")
-            logo.setAttribute("src", "img/logo.png")
-            window.removeEventListener("scroll", sticky, false)
+    function classRemove( arr, arrClass ) {
+        for ( var i = 0, ilen = arr.length; i < ilen; i++ ) {
+            arr[i].classList.remove( arrClass[i] )
+        }
+    }
+    
+    function sticky() {
+        var arr = [header, ham]
+        var arrClass = ["page-header__sticky", "hamburger__sticky"]
+        var dist = document.body.scrollTop + document.documentElement.scrollTop
+        if ( dist > 0 ) {
+            classAdd( arr, arrClass )
+            logo.setAttribute( "src", "img/logo-dark.png" )
         }
         else {
-            btn.setAttribute("title", "Open menu")
-            window.addEventListener("scroll", sticky, false)
+            classRemove( arr, arrClass )
+            logo.setAttribute( "src", "img/logo.png" )
+        }
+    }
+    
+    btn.addEventListener( "click", function () {
+        var items = [menu, ring, ham]
+        var itemsClass = ["page-nav__opened", "hamburger-svg__ring-filled", "hamburger-opened"]
+        
+        if ( ham.className === "hamburger" || ham.className === "hamburger hamburger__sticky" ) {
+            btn.setAttribute( "title", "Close menu" )
+            header.classList.remove( "page-header__sticky" )
+            ham.classList.remove( "hamburger__sticky" )
+            logo.setAttribute( "src", "img/logo.png" )
+            window.removeEventListener( "scroll", sticky, false )
+        }
+        else {
+            btn.setAttribute( "title", "Open menu" )
+            window.addEventListener( "scroll", sticky, false )
         }
         
-        classToggle(ham, baseClass, items, itemsClass)
-        
-    }, false)
+        classToggle( items, itemsClass )
+    }, false )
     
-    window.addEventListener("scroll", sticky, false)
+    window.addEventListener( "scroll", sticky, false )
     
 } () );
