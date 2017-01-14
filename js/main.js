@@ -54,7 +54,9 @@ var mySwiper = new Swiper ('.swiper-container', {
         }
     }
     
-    btn.addEventListener( "click", function () {
+    btn.addEventListener( "click", function(e) {
+        'use strict';
+        e.preventDefault();
         var items = [menu, ring, ham]
         var itemsClass = ["page-nav__opened", "hamburger-svg__ring-filled", "hamburger-opened"]
         
@@ -76,3 +78,18 @@ var mySwiper = new Swiper ('.swiper-container', {
     window.addEventListener( "scroll", sticky, false )
     
 } () );
+
+( function( $ ) {
+	'use strict';
+	
+	$( '.scrollTo' ).on( 'click', function(e) {
+		e.preventDefault();
+		var href = $( this ).attr( 'href' );
+		$( 'html, body' ).animate( {
+			scrollTop: $( href ).offset().top + 'px'
+		}, 1500, function() {
+			location.hash = href;
+		} ); 
+	} );
+	
+} ( jQuery ) );
