@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width">
         <title>MegaKit</title>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
         <link rel="stylesheet" href="./css/swiper.min.css">
         <link rel="stylesheet" href="./css/main.css?v=1.0.0">
     </head>
@@ -34,13 +35,13 @@
                         <li class="categories-list__item"><a class="categories-list__link" href="#">Contact</a></li>
                     </ul>
                     <ul class="lang-list">
-                        <li class="lang-list__item"><a class="lang-list__link lang-list__link_active" href="#">EN</a></li>
-                        <li class="lang-list__item"><a class="lang-list__link" href="#">PL</a></li>
+                        <li class="lang-list__item"><a class="lang-list__link lang-list__link_active text-upper" href="#">En</a></li>
+                        <li class="lang-list__item"><a class="lang-list__link text-upper" href="#">Pl</a></li>
                     </ul>
                     <ul class="socials-list">
-                        <li class="socials-list__item"><a class="socials-list__link" href="#"><span class="fa fa-facebook" aria-hidden="true"></span><span class="socials-list__link-text">FACEBOOK</span></a></li>
-                        <li class="socials-list__item"><a class="socials-list__link" href="#"><span class="fa fa-twitter" aria-hidden="true"></span><span class="socials-list__link-text">TWITTER</span></a></li>
-                        <li class="socials-list__item"><a class="socials-list__link" href="#"><span class="fa fa-instagram" aria-hidden="true"></span><span class="socials-list__link-text">INSTAGRAM</span></a></li>
+                        <li class="socials-list__item"><a class="socials-list__link" href="#"><span class="fa fa-facebook" aria-hidden="true"></span><span class="socials-list__link-text text-upper">Facebook</span></a></li>
+                        <li class="socials-list__item"><a class="socials-list__link" href="#"><span class="fa fa-twitter" aria-hidden="true"></span><span class="socials-list__link-text text-upper">Twitter</span></a></li>
+                        <li class="socials-list__item"><a class="socials-list__link" href="#"><span class="fa fa-instagram" aria-hidden="true"></span><span class="socials-list__link-text text-upper">Instagram</span></a></li>
                     </ul>
                 </nav>
             </header>
@@ -52,10 +53,21 @@
                     <div class="swiper-slide swiper-slide__slide2">Slide 2</div>
                 </div>
                 <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev">
+                    <span class="fa fa-angle-left" aria-hidden="true"></span>
+                </div>
+                <div class="swiper-button-next">
+                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                </div>
+                <!-- Scroll to section  -->
+                <div class="swiper-scrollWrap">
+                    <a class="swiper-scrolldown" href="#section1">
+                        <span class="fa fa-angle-double-down swiper-scrolldown__arrow-down" aria-hidden="true"></span>
+                        <span class="text-upper">Learn More</span>
+                    </a>
+                </div>
             </div>
-            <p>position: fixed;position: fixed;position: fixed;position: fixed;position: fixed;</p>
+            <p id="section1">position: fixed;position: fixed;position: fixed;position: fixed;position: fixed;</p>
             <p>position: fixed;position: fixed;position: fixed;position: fixed;position: fixed;</p>
             <p>position: fixed;position: fixed;position: fixed;position: fixed;position: fixed;</p>
             <p>position: fixed;position: fixed;position: fixed;position: fixed;position: fixed;</p>
